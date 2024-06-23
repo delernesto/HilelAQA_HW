@@ -24,6 +24,7 @@ namespace AtataUITests.Tests
         }
 
         [Test]
+        [Category("UI")]
         public void VerifyDocumentsCheckBoxChecked()
         {
             Go.To<DemoQACheckBoxPage>().
