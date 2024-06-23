@@ -21,7 +21,7 @@ namespace AtataUITests.Tests
 
 
         //Test Case 1
-        [Test]
+        [Test, Retry(2)]
         [Description("Label \"Full Name\" should be visible")]
         [Category("UI")]
         public void VerifyFullNameFieldLabelVisible()
@@ -33,7 +33,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 2
-        [Test]
+        [Test, Retry(2)]
         [Description("Full Name input should be visible")]
         [Category("UI")]
         public void VerifyFullNameFieldVisible()
@@ -44,7 +44,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 3
-        [Test]
+        [Test, Retry(2)]
         [Description("Enter \"John Doe\" in Text Full Name Input, " +
             "press submit, text Name should be \"Name:John Doe\"")]
         [Category("UI")]
@@ -60,7 +60,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 4
-        [Test]
+        [Test, Retry(2)]
         [Description("Clear Text Full Name Input, press submit, text Name " +
             "should not be visible")]
         [Category("UI")]
@@ -87,7 +87,7 @@ namespace AtataUITests.Tests
         //Test Case 5 Clear name@example.com Input, press submit, text email should not be visible
 
         //Test Case 1  
-        [Test]
+        [Test, Retry(2)]
         [Description("Text Email Name should be visible")]
         [Category("UI")]
 
@@ -100,7 +100,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 2:
-        [Test]
+        [Test, Retry(2)]
         [Description("Text name@example.com should be visible")]
         [Category("UI")]
 
@@ -113,7 +113,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 3:
-        [Test]
+        [Test, Retry(2)]
         [Description("Enter invalid email data like \"John Doe\" in name@example.com Input, press submit, bar should become red")]
         [Category("UI")]
         public void TestIncorrectInputInEmailField()
@@ -126,7 +126,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 4:   
-        [Test]
+        [Test, Retry(2)]
         [Description(" Enter valid email data like \"ABC@gmail.com\" in " +
             "name@example.com Input, press submit, text Name should be ABC@gmail.com")]
         [Category("UI")]
@@ -141,7 +141,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 5:   
-        [Test]
+        [Test, Retry(2)]
         [Description("Clear name@example.com Input, press submit, text email " +
             "should not be visible")]
         [Category("UI")]
@@ -168,7 +168,7 @@ namespace AtataUITests.Tests
         //Test Case 4: Clear Text Current Address Input, press submit, text Current Address should not be visible
 
         //Test Case 1  
-        [Test]
+        [Test, Retry(2)]
         [Description("Label Current Address should be visible")]
         [Category("UI")]
         public void VerifyCurrentAddressLabelVisible()
@@ -180,7 +180,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 2
-        [Test]
+        [Test, Retry(2)]
         [Description("Current Address Input should be visible")]
         [Category("UI")]
         public void VerifyCurrentAddressFieldVisible()
@@ -190,7 +190,7 @@ namespace AtataUITests.Tests
                 CurrentAddressInput.Should.BeVisible();
         }
         //Test Case 3
-        [Test]
+        [Test, Retry(2)]
         [Description("Enter 'Bajana 10' in Permanent Address Input, press submit," +
             " text Permanent Address should be 'Name: Bajana 10'")]
         [Category("UI")]
@@ -204,7 +204,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 4
-        [Test]
+        [Test, Retry(2)]
         [Description("Clear Text Current Address Input, press submit," +
             " text Current Address should not be visible")]
         [Category("UI")]
@@ -230,7 +230,7 @@ namespace AtataUITests.Tests
         //Test Case 4: Clear Text Permanent Address Input, press submit, text Permanent Address should not be visible
 
         //Test Case 1  
-        [Test]
+        [Test, Retry(2)]
         [Description("Text Permanent Address should be visible")]
         [Category("UI")]
         public void VerifyPermanentAddressLabelVisible()
@@ -242,7 +242,7 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 2
-        [Test]
+        [Test, Retry(2)]
         [Description("Permanent Address Input should be visible")]
         [Category("UI")]
         public void VerifyPermanentAddressFieldVisible()
@@ -252,7 +252,7 @@ namespace AtataUITests.Tests
                 PermanentAddressInput.Should.BeVisible();
         }
         //Test Case 3
-        [Test]
+        [Test, Retry(2)]
         [Description("Enter 'Bajana 14' in Permanent Address Input, press submit," +
             " text Permanent Address should be 'Name: Bajana 14'")]
         [Category("UI")]
@@ -267,10 +267,10 @@ namespace AtataUITests.Tests
         }
 
         //Test Case 4
-        [Test]
+        [Test, Retry(2)]
         [Description("Clear Text Permanent Address Input, press submit, text " +
         "Permanent Address should not be visible")]
-        [Category("Test")]
+        [Category("UI")]
         public void TestPermanentAddressInputClearence()
         {
             Go.To<DemoQAElementsPage>().

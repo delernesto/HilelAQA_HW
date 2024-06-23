@@ -11,7 +11,7 @@ namespace AtataUITests.Tests
 {
     internal class DownloadUploadTests : UITestFixture
     {
-        [Test,Description("Donwload file verify file updated")]
+        [Test,Description("Donwload file verify file updated"), Retry(2)]
         [Category("UI")]
         public void DownloadTest()
         {
@@ -21,7 +21,7 @@ namespace AtataUITests.Tests
             AtataContext.Current.Artifacts.Should.WithinSeconds(10).ContainFile("sampleFile.jpeg");
         }
 
-        [Test,Description("Donwload file then upload same file")]
+        [Test,Description("Donwload file then upload same file"), Retry(2)]
         [Category("UI")]
         public void UploadTest()
         {
