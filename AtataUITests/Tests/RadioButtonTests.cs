@@ -5,7 +5,7 @@ namespace AtataUITests.Tests
     internal class RadioButtonTests : UITestFixture
     {
         [Test, Retry(2)]
-        [Category("UI")]
+        [Category("RadioButtonTest")]
         public void VerifyYesRadioButtonVisible()
         {
             Go.To<DemoQARadioButtonPage>().
@@ -21,7 +21,7 @@ namespace AtataUITests.Tests
         [Test, Retry(2)]
         [Description("Verify Impressive radio Button can be checked and display " +
             "text 'You have selected Impressive'")]
-        [Category("UI")]
+        [Category("RadioButtonTest")]
         public void VerifyImpressiveRadioButton()
         {
             Go.To<DemoQARadioButtonPage>().
@@ -33,7 +33,7 @@ namespace AtataUITests.Tests
         //TC-3 : Verify No radio Button disabled and not show text 'You have selected'
         [Test, Retry(2)]
         [Description("Verify No radio Button disabled and not show text 'You have selected'")]
-        [Category("UI")]
+        [Category("RadioButtonTest")]
         public void VerifyNoRadioButtonDisabled()
         {
             Go.To<DemoQARadioButtonPage>().
@@ -43,7 +43,7 @@ namespace AtataUITests.Tests
         //TC-4 : Verify H1 Radio Button is visible
         [Test, Retry(2)]
         [Description("Verify H1 Radio Button is visible")]
-        [Category("UI")]
+        [Category("RadioButtonTest")]
         public void VerifyH1RadioButtonIsVisible()
         {
             Go.To<DemoQARadioButtonPage>().
@@ -52,7 +52,7 @@ namespace AtataUITests.Tests
         //TC-5 : Verify text 'You have selected Impressive' is not visible after page refresh
         [Test, Retry(2)]
         [Description("Verify text 'You have selected Impressive' is not visible after page refresh")]
-        [Category("UI")]
+        [Category("RadioButtonTest")]
         public void VerifyImpressiveRadioButtonIsNotVisibleAfterRefresh()
         {
             Go.To<DemoQARadioButtonPage>().
