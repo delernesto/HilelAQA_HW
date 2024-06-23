@@ -270,7 +270,7 @@ namespace AtataUITests.Tests
         [Test]
         [Description("Clear Text Permanent Address Input, press submit, text " +
         "Permanent Address should not be visible")]
-        [Category("UI")]
+        [Category("Test")]
         public void TestPermanentAddressInputClearence()
         {
             Go.To<DemoQAElementsPage>().
