@@ -1,5 +1,6 @@
 ﻿using Microsoft.Playwright;
 using NUnitTests.Features.Drive;
+using static System.Net.Mime.MediaTypeNames;
 namespace PlaywrigthUITests.Tests
 {
     [Description("Verify Buttons on buttons page")]
@@ -90,7 +91,7 @@ namespace PlaywrigthUITests.Tests
         //TC-5 : Verify Click Rigth Click Me button verify button focused
         [Test, Description("Verify Rigth Click Me button should be Focused"), Retry(2)]
         [Category("UI")]
-        [Ignore("Find how to test FOCUS")]
+        
         public async Task VerifyRigthClickMeFocused()
         {
             await Page.GotoAsync("https://demoqa.com/elements");
@@ -103,8 +104,8 @@ namespace PlaywrigthUITests.Tests
             {
                 Button = MouseButton.Right,
             });
-            var isFocused = await Page.GetByRole(AriaRole.Button, new() { NameString = "Right Click Me" }).IsCheckedAsync();
-            Assert.That(isFocused, "Button 'Right Click Me' should be focused after right click");
+            await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { NameString = "Right Click Me" })).ToBeFocusedAsync();
+
         }
 
         //TC-6 : Verify H1 Buttons is visible

@@ -11,6 +11,7 @@ namespace AtataUITests.Tests
 {
     internal class CheckBoxTreeTests : UITestFixture
     {
+
         [Test, Retry(2)]
         [Category("UI")] 
         public void VerifyCheckBoxTreeeHomeCheckboxVisible()
