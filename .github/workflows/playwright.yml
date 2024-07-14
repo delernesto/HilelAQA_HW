@@ -32,7 +32,7 @@ jobs:
 
     # Install Playwright browsers
     - name: Install Playwright Browsers
-      run: pwsh bin/Debug/net8.0/playwright.ps1 install
+      run: pwsh PlaywrigthUITests/bin/Debug/net8.0/playwright.ps1 install
 
     # Run Playwright tests
     - name: Test
