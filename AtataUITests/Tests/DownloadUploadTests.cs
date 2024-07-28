@@ -1,18 +1,11 @@
-﻿using Atata;
-using AtataUITests.Infrastructure;
+﻿using AtataUITests.Infrastructure;
 using AtataUITests.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AtataUITests.Tests
 {
     internal class DownloadUploadTests : UITestFixture
     {
-        [Test,Description("Donwload file verify file updated"), Retry(2)]
-        [Category("UI")]
+        [Test, Description("Donwload file verify file updated")]
         public void DownloadTest()
         {
             Go.To<DemoQADownloadUploadPage>().
@@ -21,8 +14,7 @@ namespace AtataUITests.Tests
             AtataContext.Current.Artifacts.Should.WithinSeconds(10).ContainFile("sampleFile.jpeg");
         }
 
-        [Test,Description("Donwload file then upload same file"), Retry(2)]
-        [Category("UI")]
+        [Test, Description("Donwload file then upload same file")]
         public void UploadTest()
         {
             Go.To<DemoQADownloadUploadPage>().
