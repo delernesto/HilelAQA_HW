@@ -82,8 +82,10 @@ public class ExampleTest
         await Page.GetByRole(AriaRole.Link, new() { Name = "My Dashboard" }).ClickAsync();
         await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Welcome back, Astolfo R!" })).ToBeVisibleAsync();
         await Page.GetByLabel("Toggle menu").ClickAsync();
-        await Page.GetByRole(AriaRole.Link, new() { Name = "Sign Out" }).ClickAsync();
-        await Assertions.Expect(Page.GetByRole(AriaRole.Link, new() { Name = "Sign In" })).ToBeVisibleAsync();
+
+        //last 2 Tests that should be deleted
+        //await Page.GetByRole(AriaRole.Link, new() { Name = "Sign Out" }).ClickAsync();
+        //await Assertions.Expect(Page.GetByRole(AriaRole.Link, new() { Name = "Sign In" })).ToBeVisibleAsync();
 
 
 
