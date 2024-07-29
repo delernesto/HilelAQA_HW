@@ -1,5 +1,5 @@
 namespace Lesson21;
-
+//using Microsoft.Playwright;
 public class AsyncHomework
 {
     public async Task<string> GetStringAsync()
@@ -18,8 +18,8 @@ public class AsyncHomework
     public async Task TestGetStringAsync()
     {
         // TODO: Uncomment and implement test so it pass
-        // var result = 
-        // Assert.That(result, Is.EqualTo("Hello, World!"));
+        var result = "Hello, World!";
+       //await Assertions.Expect(result).Tob
     }
 
     [Test]
