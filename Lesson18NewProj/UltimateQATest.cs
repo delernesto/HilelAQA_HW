@@ -22,7 +22,7 @@ public class ExampleTest
         });
 
         var fileinfo = new FileInfo(storagefile);
-        BrowserNewContextOptions contextOptions;
+        
 
         if (!fileinfo.Exists)
         {
@@ -38,6 +38,7 @@ public class ExampleTest
 
         var context = await browser.NewContextAsync(new BrowserNewContextOptions
         {
+            
             StorageStatePath = storagefile,
             ViewportSize = new ViewportSize
             {
@@ -50,10 +51,7 @@ public class ExampleTest
         }); 
       
         Page = await context.NewPageAsync();
-        await context.StorageStateAsync(new()
-        {
-            Path = storagefile
-        });
+     
         await Page.GotoAsync("https://courses.ultimateqa.com/enrollments");
         await Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         if (Page.Url.EndsWith("users/sign_in"))
