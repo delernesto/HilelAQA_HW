@@ -3,7 +3,7 @@ using System.Text;
 using Microsoft.Playwright;
 
 
-namespace Lesson18NewProj;
+namespace Lesson18HW;
 
 public class ExampleTest
 {
@@ -81,10 +81,7 @@ public class ExampleTest
         await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Welcome back, Astolfo R!" })).ToBeVisibleAsync();
         await Page.GetByLabel("Toggle menu").ClickAsync();
 
-        //last 2 Tests that should be deleted
-        //await Page.GetByRole(AriaRole.Link, new() { Name = "Sign Out" }).ClickAsync();
-        //await Assertions.Expect(Page.GetByRole(AriaRole.Link, new() { Name = "Sign In" })).ToBeVisibleAsync();
-
+       
 
 
 
