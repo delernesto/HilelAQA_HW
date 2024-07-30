@@ -1,5 +1,5 @@
 namespace Lesson21;
-//using Microsoft.Playwright;
+
 public class AsyncHomework
 {
     public async Task<string> GetStringAsync()
@@ -18,15 +18,25 @@ public class AsyncHomework
     public async Task TestGetStringAsync()
     {
         // TODO: Uncomment and implement test so it pass
-        var result = "Hello, World!";
-       //await Assertions.Expect(result).Tob
+        var result = await GetStringAsync();
+        Assert.That(result, Is.EqualTo("Hello, World!"));
     }
 
     [Test]
-    public void TestGetNumberWithExceptionAsync()
+    public async Task TestGetNumberWithExceptionAsync()
     {
         // TODO: Verify that GetNumberWithExceptionAsync() throws InvalidOperationException
         // and that exception message is "An error occurred while fetching the number."
+
+        try
+        {
+            await GetNumberWithExceptionAsync();
+            Assert.Fail("Expected exception was not thrown.");
+        }
+        catch (InvalidOperationException ex)
+        {
+            Assert.That(ex.Message, Is.EqualTo("An error occurred while fetching the number."));
+        }
     }
 
 }
