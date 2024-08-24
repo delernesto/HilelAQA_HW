@@ -15,21 +15,33 @@ namespace SolarTechHW.Tests
             await SolarTehchnologyShop.GoToSolarTehchnologyShopPage();
 
         }
-        
+       
         [Test]
-        [Description("Test Filter Fields")]
-
-        public async Task VerifyFilterCheckbox()
+        [Description("Test Filter Fields of Solar Panels")]
+        [TestCase("JA Solar")]
+        [TestCase("Jinko Solar")]
+        [TestCase("Полікристал")]
+        [TestCase("60")]
+        public async Task VerifyFilterCheckboxSolarPanels(string propertyname)
         {
             await SolarTehchnologyShop.GoToSolarPannels();
             await SolarTehchnologyShop.PressButtonFilterProducts();
+            await SolarTehchnologyShop.VerifyItemsFilter(propertyname);
+        }
 
-            string[] properties = { "JA Solar", "Jinko Solar", "Полікристал", "60" };
-
-            await SolarTehchnologyShop.VerifyItemsFilter(properties);
-
+        [Test]
+        [Description("Test Filter Fields of Solar Panels")]
+        [TestCase("Deye")]
+        [TestCase("Huawei")]
+        [TestCase("Мережевий")]
+        
+        public async Task VerifyFilterCheckboxInventors(string propertyname)
+        {
+            await SolarTehchnologyShop.GoToSolarPannels();
+            await SolarTehchnologyShop.GoToInverters();
+            await SolarTehchnologyShop.PressButtonFilterProducts();
+            await SolarTehchnologyShop.VerifyItemsFilter(propertyname);
 
         }
-        
     }
 }

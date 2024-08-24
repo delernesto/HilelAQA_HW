@@ -1,5 +1,4 @@
 ﻿using Microsoft.Playwright;
-using NUnit.Framework;
 
 namespace SolarTechHW.PageObjects
 {
@@ -57,14 +56,61 @@ namespace SolarTechHW.PageObjects
         }
         #endregion
 
+        public async Task VerifyItemsFilter(string propertyname)
+        {
+
+            var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{propertyname}\")");
+            //var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = name });
+            await filterCheckbox.ClickAsync();
+            await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
+
+
+            //First used here because playright throws exeption cause there are many objects with same class
+            bool anyproducts = await page.Locator("[class*='prod-holder']").First.IsVisibleAsync();
+
+
+            //acknowledged that its bad practice to put assert in if but not sure
+            //how to do it in a different way
+            if (anyproducts)
+            {
+                //Here we count all how many pruducts are suitable for filters 
+                int count = await page.Locator("[class*='prod-holder']").CountAsync();
+                for (int i = 0; i < count; i++)
+                {
+                    //Here we compare text inside product quicklook with our specific filter
+                    var product = page.Locator("[class*='prod-holder']").Nth(i);
+                    string textContent = await product.InnerTextAsync();
+                    bool containsText = textContent.Contains(propertyname, StringComparison.OrdinalIgnoreCase);
+
+                    // if we fail to find it inside product's quicklook of properties, 
+                    // we check it on product's pace
+                    if (!containsText)
+                    {
+                        await Task.Delay(5000);
+                        await page.Locator("[class*='prod-holder']").Nth(i).ClickAsync();
+
+                        var productspecstable = page.Locator(".specs");
+                        textContent = await productspecstable.InnerTextAsync();
+                        containsText = textContent.Contains(propertyname, StringComparison.OrdinalIgnoreCase);
+                    }
+
+                    Assert.IsTrue(containsText, $"Product does not contain specific filter '{propertyname}'");
+                    await page.GoBackAsync();
+
+                }
+            }
+        }
+        #region Multiple filter skeleton
         public async Task VerifyItemsFilter(string[] propertyname)
         {
             Assert.That(propertyname.Length > 0, "Filter array is empty");
             foreach (string name in propertyname)
             {
-                var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{name}\")");
-                //var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = name });
-                await filterCheckbox.CheckAsync();
+                //var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{name}\")");
+                var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = name });
+                await filterCheckbox.ClickAsync();
+                //await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
+
                 await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
 
                 var productLocator = page.Locator("[class*='prod-holder']").First;
@@ -89,5 +135,7 @@ namespace SolarTechHW.PageObjects
                 }
             }
         }
+        #endregion
+
     }
 }
