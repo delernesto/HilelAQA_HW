@@ -9,13 +9,13 @@ namespace SolarTechHW.Tests
         private SolarTehchnologyShop SolarTehchnologyShop;
 
         [SetUp]
-        public async Task SetupDemoQAPage()
+        public async Task SetupSolarTehchnologyShopPage()
         {
             SolarTehchnologyShop = new SolarTehchnologyShop(Page);
             await SolarTehchnologyShop.GoToSolarTehchnologyShopPage();
 
         }
-       
+
         [Test]
         [Description("Test Filter Fields of Solar Panels")]
         [TestCase("JA Solar")]
@@ -26,7 +26,8 @@ namespace SolarTechHW.Tests
         {
             await SolarTehchnologyShop.GoToSolarPannels();
             await SolarTehchnologyShop.PressButtonFilterProducts();
-            await SolarTehchnologyShop.VerifyItemsFilter(propertyname);
+            await SolarTehchnologyShop.FilterItems(propertyname);
+            await SolarTehchnologyShop.VerifyFilteredItems(propertyname);
         }
 
         [Test]
@@ -34,14 +35,37 @@ namespace SolarTechHW.Tests
         [TestCase("Deye")]
         [TestCase("Huawei")]
         [TestCase("Мережевий")]
-        
+
         public async Task VerifyFilterCheckboxInventors(string propertyname)
         {
-            await SolarTehchnologyShop.GoToSolarPannels();
             await SolarTehchnologyShop.GoToInverters();
             await SolarTehchnologyShop.PressButtonFilterProducts();
-            await SolarTehchnologyShop.VerifyItemsFilter(propertyname);
+            await SolarTehchnologyShop.FilterItems(propertyname);
+            await SolarTehchnologyShop.VerifyFilteredItems(propertyname); 
+        }
 
+        [Test]
+        [Description("Test Adding and deleting item of shopping cart ")]
+
+        public async Task AddandDeleteProductsofShoppingCart()
+        {
+            await SolarTehchnologyShop.GoToInverters();
+            await SolarTehchnologyShop.VerifyAnyItemsOnPage();
+            await SolarTehchnologyShop.AddItemToShopCart();
+            await SolarTehchnologyShop.VerifyAnyItemsInCart();
+            await SolarTehchnologyShop.ClickDeleteItemFromShopCart();
+            await SolarTehchnologyShop.VerrifyThatPageChangedToDefaultAndCartIsEmpty();
+        }
+
+
+        [Test]
+        [Description("Verify that all products in main" +
+            " page dispays corret name in quicklook and on product page ")]
+
+        public async Task VerifyProductNamesAreIdentical()
+        {
+            await SolarTehchnologyShop.VerifyAnyItemsOnPage();
+            await SolarTehchnologyShop.VerrifyClickedProductsNamesAreCorrect();
         }
     }
 }
