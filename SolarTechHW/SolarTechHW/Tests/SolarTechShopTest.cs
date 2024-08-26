@@ -24,9 +24,14 @@ namespace SolarTechHW.Tests
         [TestCase("60")]
         public async Task VerifyFilterCheckboxSolarPanels(string propertyname)
         {
+            // Arrange
             await SolarTehchnologyShop.GoToSolarPannels();
+
+            // Act
             await SolarTehchnologyShop.PressButtonFilterProducts();
             await SolarTehchnologyShop.FilterItems(propertyname);
+
+            // Assert
             await SolarTehchnologyShop.VerifyFilteredItems(propertyname);
         }
 
@@ -54,7 +59,7 @@ namespace SolarTechHW.Tests
             await SolarTehchnologyShop.AddItemToShopCart();
             await SolarTehchnologyShop.VerifyAnyItemsInCart();
             await SolarTehchnologyShop.ClickDeleteItemFromShopCart();
-            await SolarTehchnologyShop.VerrifyThatPageChangedToDefaultAndCartIsEmpty();
+            await SolarTehchnologyShop.VerrifyCartIsEmpty();
         }
 
 
