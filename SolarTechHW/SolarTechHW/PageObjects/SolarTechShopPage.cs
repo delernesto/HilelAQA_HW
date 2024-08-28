@@ -1,13 +1,14 @@
 ﻿using Microsoft.Playwright;
+using System;
 
 namespace SolarTechHW.PageObjects
 {
-    internal class SolarTehchnologyShop
+    internal class SolarTehchShopPage
     {
         private IPage page;
         private string SolarTechShopPageUrl = "https://solartechnology.com.ua/shop";
 
-        public SolarTehchnologyShop(IPage pagenew)
+        public SolarTehchShopPage(IPage pagenew)
         {
             page = pagenew;
         }
@@ -58,28 +59,17 @@ namespace SolarTechHW.PageObjects
 
         public async Task FilterItems(string propertyname)
         {
-            //var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{propertyname}\")");
-            //var filterCheckbox = page.Locator(".checkbox").Locator($"span:text-is(\"{propertyname}\")");
             var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = propertyname }).Locator("span");
 
             await filterCheckbox.ClickAsync();
-            
+
             await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
 
-            await page.WaitForURLAsync("**/solar-panels?filter*");
+            await page.WaitForURLAsync("**/*?filter*");
             await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         }
         public async Task VerifyFilteredItems(string propertyname)
         {
-            //First used here because playright throws exeption cause there are many objects with same class
-            //bool anyproducts = await page.Locator("[class*='prod-holder']").First.IsVisibleAsync();
-
-            //Here used If instead of Assert cause its possible to be 0 elements after filters
-            //P.S. acknowledged that its bad practice to put assert inside if but not sure
-            //how to do it in a different way
-            //if (anyproducts)
-            //{
-            //await Task.Delay(5000);
             //Here we count all how many pruducts are suitable for filters 
             int count = await page.Locator("[class*='prod-holder']").CountAsync();
             Assert.That(count, Is.GreaterThan(0));
@@ -95,7 +85,7 @@ namespace SolarTechHW.PageObjects
                 // we check it on product's pace
                 if (!containsText)
                 {
-                    //await Task.Delay(5000); 
+
                     await page.Locator("[class*='prod-holder']").Nth(i).ClickAsync();
 
                     var productspecstable = page.Locator(".specs");
@@ -104,49 +94,9 @@ namespace SolarTechHW.PageObjects
 
                     await page.GoBackAsync();
                 }
-
                 Assert.IsTrue(containsText, $"Product number {i} does not contain specific filter '{propertyname}'");
-
-                    
             }
-            //}
         }
-        #region Multiple filter skeleton
-        //public async Task VerifyItemsFilter(string[] propertyname)
-        //{
-        //    Assert.That(propertyname.Length > 0, "Filter array is empty");
-        //    foreach (string name in propertyname)
-        //    {
-        //        //var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{name}\")");
-        //        var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = name });
-        //        await filterCheckbox.ClickAsync();
-        //        //await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
-
-        //        await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
-
-        //        var productLocator = page.Locator("[class*='prod-holder']").First;
-        //        bool anyproducts = await productLocator.IsVisibleAsync();
-
-
-        //        if (anyproducts)
-        //        {
-        //            int count = await productLocator.CountAsync();
-        //            bool elementFound = false;
-        //            for (int i = 0; i < count; i++)
-        //            {
-        //                var product = productLocator.Nth(i);
-        //                bool isVisible = await product.Locator($"span:has-text(\"{name}\")").First.IsVisibleAsync();
-        //                if (isVisible)
-        //                {
-        //                    elementFound = true;
-        //                    break;
-        //                }
-        //            }
-        //            Assert.That(elementFound, $"No product matches the filter '{name}'");
-        //        }
-        //    }
-        //}
-        #endregion
 
         public async Task AddItemToShopCart()
         {
@@ -154,35 +104,11 @@ namespace SolarTechHW.PageObjects
             await page.GetByRole(AriaRole.Link, new() { Name = "Оформити замовлення" }).ClickAsync();
             await page.WaitForURLAsync("https://solartechnology.com.ua/cart");
         }
-
-        public async Task VerifyAnyItemsInCart()
-        {
-            await Assertions.Expect(page.Locator("[class*='cart-product']").First).ToBeVisibleAsync();
-        }
-
-        public async Task ClickDeleteItemFromShopCart()
-        {
-            await page.Locator("span[class*='remove-from-cart']:has-text('close')").ClickAsync();
-            
-
-        }
         public async Task VerrifyCartIsEmpty()
         {
             //"cart-icon labeled" - red dot when cart is not empty
             await Assertions.Expect(page.Locator(".cart-icon")).ToBeVisibleAsync();
             await Assertions.Expect(page.Locator(".cart-icon.labeled")).Not.ToBeVisibleAsync();
-
-            //await Task.Delay(5000);
-
-            ////Verrify that after deleting item page changed to default
-            //string currentUrl = page.Url;
-            //Assert.That(currentUrl, Is.EqualTo("https://solartechnology.com.ua/shop"), "The URL supposed to change after" +
-            //    " deleting item from shopping cart.");
-
-            ////Verify that if we click shopping cart button nothing happens. That means shopping cart is empty
-            //await page.Locator("li").Filter(new() { HasText = "shopping_cart" }).Locator("a").ClickAsync();
-            //Assert.That(currentUrl, Is.EqualTo("https://solartechnology.com.ua/shop"), "The URL changed after" +
-            //    " clicking the button, indicating that something happened.");
         }
 
         public async Task VerifyAnyItemsOnPage()
@@ -190,40 +116,35 @@ namespace SolarTechHW.PageObjects
             await Assertions.Expect(page.Locator("[class*='list-product-title']").First).ToBeVisibleAsync();
         }
 
-        public async Task VerrifyClickedProductsNamesAreCorrect()
+        public async Task<int> ChooseRandomItem()
         {
-            
-            string productPageGeneralUrl = "https://solartechnology.com.ua/shop/view/";
-            int count = await page.Locator("[class*='list-product-title']").CountAsync();
+            int count = await page.Locator("[class*='prod-holder']").CountAsync();
+            Random random = new Random();
 
-            //Test fails on 20's product cause of incorrect product name
-            for (int i = 0; i < count; i++)
-            {
-                string productTitle = await page.Locator("[class*='list-product-title']").Nth(i).InnerTextAsync();
+            Assert.That(count, Is.GreaterThan(0), "There no items on Page!");
 
-
-                //here special check for rare product with wrong product name( includes words on сyrillic)
-                bool containsCyrillic = Regex.IsMatch(productTitle, @"[\u0400-\u04FF]");
-                if (containsCyrillic)
-                {
-                    productTitle = Regex.Replace(productTitle, @"[\u0400-\u04FF]", "");
-                }
-
-                //Here we make sure there are no extra spaces in product name string
-                productTitle = productTitle.Trim();
-
-                await page.Locator("[class*='list-product-title']").Nth(i).ClickAsync();
-
-                string currentUrl = page.Url;
-                Assert.That(currentUrl.Contains(productPageGeneralUrl, StringComparison.OrdinalIgnoreCase),
-                    "URL of page after click differ from general URL for products ");
-
-                var h1Element = await page.Locator("h1").InnerTextAsync();
-                Assert.That(h1Element.Contains(productTitle, StringComparison.OrdinalIgnoreCase),
-                      $"Product name '{productTitle}' didnt match '{h1Element}'");
-
-                await page.GoBackAsync();
-            }
+            return random.Next(0, count - 1);
         }
+
+        public async Task<string> GetProductNameToCompare(int productnumber)
+        {
+            string productTitle = await page.Locator("[class*='list-product-title']").Nth(productnumber).InnerTextAsync();
+
+            //here special check for rare product with wrong product name( includes words on сyrillic)
+            bool containsCyrillic = Regex.IsMatch(productTitle, @"[\u0400-\u04FF]");
+            if (containsCyrillic)
+            {
+                productTitle = Regex.Replace(productTitle, @"[\u0400-\u04FF]", "");
+            }
+            //Here we make sure there are no extra spaces in product name string
+            productTitle = productTitle.Trim();
+
+            return productTitle;
+        }
+        public async Task ClickChosenItem(int productnumber)
+        {
+            await page.Locator("[class*='list-product-title']").Nth(productnumber).ClickAsync();
+        }
+
     }
 }

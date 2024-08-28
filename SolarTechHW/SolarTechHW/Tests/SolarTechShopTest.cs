@@ -6,13 +6,18 @@ namespace SolarTechHW.Tests
 {
     internal class SolarTechShopTest : UITestFixture
     {
-        private SolarTehchnologyShop SolarTehchnologyShop;
+        private SolarTehchShopPage SolarTechShopPage;
+        private SolarTechShopCartPage SolarTechShopCartPage;
+        private SolarTechShopItemPage SolarTechShopItemPage;
 
         [SetUp]
         public async Task SetupSolarTehchnologyShopPage()
         {
-            SolarTehchnologyShop = new SolarTehchnologyShop(Page);
-            await SolarTehchnologyShop.GoToSolarTehchnologyShopPage();
+            SolarTechShopPage = new SolarTehchShopPage(Page);
+            SolarTechShopCartPage = new SolarTechShopCartPage(Page);
+            SolarTechShopItemPage = new SolarTechShopItemPage(Page);
+
+            await SolarTechShopPage.GoToSolarTehchnologyShopPage();
 
         }
 
@@ -25,14 +30,14 @@ namespace SolarTechHW.Tests
         public async Task VerifyFilterCheckboxSolarPanels(string propertyname)
         {
             // Arrange
-            await SolarTehchnologyShop.GoToSolarPannels();
+            await SolarTechShopPage.GoToSolarPannels();
 
             // Act
-            await SolarTehchnologyShop.PressButtonFilterProducts();
-            await SolarTehchnologyShop.FilterItems(propertyname);
+            await SolarTechShopPage.PressButtonFilterProducts();
+            await SolarTechShopPage.FilterItems(propertyname);
 
             // Assert
-            await SolarTehchnologyShop.VerifyFilteredItems(propertyname);
+            await SolarTechShopPage.VerifyFilteredItems(propertyname);
         }
 
         [Test]
@@ -43,10 +48,15 @@ namespace SolarTechHW.Tests
 
         public async Task VerifyFilterCheckboxInventors(string propertyname)
         {
-            await SolarTehchnologyShop.GoToInverters();
-            await SolarTehchnologyShop.PressButtonFilterProducts();
-            await SolarTehchnologyShop.FilterItems(propertyname);
-            await SolarTehchnologyShop.VerifyFilteredItems(propertyname); 
+            // Arrange
+            await SolarTechShopPage.GoToInverters();
+
+            // Act
+            await SolarTechShopPage.PressButtonFilterProducts();
+            await SolarTechShopPage.FilterItems(propertyname);
+
+            // Assert
+            await SolarTechShopPage.VerifyFilteredItems(propertyname);
         }
 
         [Test]
@@ -54,12 +64,17 @@ namespace SolarTechHW.Tests
 
         public async Task AddandDeleteProductsofShoppingCart()
         {
-            await SolarTehchnologyShop.GoToInverters();
-            await SolarTehchnologyShop.VerifyAnyItemsOnPage();
-            await SolarTehchnologyShop.AddItemToShopCart();
-            await SolarTehchnologyShop.VerifyAnyItemsInCart();
-            await SolarTehchnologyShop.ClickDeleteItemFromShopCart();
-            await SolarTehchnologyShop.VerrifyCartIsEmpty();
+            //Arrange
+            await SolarTechShopPage.GoToInverters();
+            await SolarTechShopPage.VerifyAnyItemsOnPage();
+
+            //Act and Assert for Add
+            await SolarTechShopPage.AddItemToShopCart();
+            await SolarTechShopCartPage.VerifyAnyItemsInCart();
+
+            //Act and Assert for Delete
+            await SolarTechShopCartPage.ClickDeleteItemFromShopCart();
+            await SolarTechShopPage.VerrifyCartIsEmpty();
         }
 
 
@@ -69,8 +84,17 @@ namespace SolarTechHW.Tests
 
         public async Task VerifyProductNamesAreIdentical()
         {
-            await SolarTehchnologyShop.VerifyAnyItemsOnPage();
-            await SolarTehchnologyShop.VerrifyClickedProductsNamesAreCorrect();
+
+            //Arrange
+            int itemnumber = await SolarTechShopPage.ChooseRandomItem();
+            string productname = await SolarTechShopPage.GetProductNameToCompare(itemnumber);
+
+            //Act
+            await SolarTechShopPage.ClickChosenItem(itemnumber);
+
+            //Assert
+            await SolarTechShopItemPage.VerifyProductURL();
+            await SolarTechShopItemPage.VerifyNamesAreIdentical(productname);
         }
     }
 }
