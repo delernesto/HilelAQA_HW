@@ -58,55 +58,58 @@ namespace SolarTechHW.PageObjects
 
         public async Task FilterItems(string propertyname)
         {
-            //Arrange
-            var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{propertyname}\")");
-            //var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = name });
+            //var filterCheckbox = page.Locator(".card-content").Locator($"span:text-is(\"{propertyname}\")");
+            //var filterCheckbox = page.Locator(".checkbox").Locator($"span:text-is(\"{propertyname}\")");
+            var filterCheckbox = page.Locator(".checkbox").Filter(new() { HasText = propertyname }).Locator("span");
 
-            //Act
             await filterCheckbox.ClickAsync();
-
-            //Assert
+            
             await Assertions.Expect(filterCheckbox).ToBeCheckedAsync();
+
+            await page.WaitForURLAsync("**/solar-panels?filter*");
+            await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         }
         public async Task VerifyFilteredItems(string propertyname)
         {
             //First used here because playright throws exeption cause there are many objects with same class
-            bool anyproducts = await page.Locator("[class*='prod-holder']").First.IsVisibleAsync();
+            //bool anyproducts = await page.Locator("[class*='prod-holder']").First.IsVisibleAsync();
 
             //Here used If instead of Assert cause its possible to be 0 elements after filters
             //P.S. acknowledged that its bad practice to put assert inside if but not sure
             //how to do it in a different way
-            if (anyproducts)
+            //if (anyproducts)
+            //{
+            //await Task.Delay(5000);
+            //Here we count all how many pruducts are suitable for filters 
+            int count = await page.Locator("[class*='prod-holder']").CountAsync();
+            Assert.That(count, Is.GreaterThan(0));
+
+            for (int i = 0; i < count; i++)
             {
-                await Task.Delay(5000);
-                //Here we count all how many pruducts are suitable for filters 
-                int count = await page.Locator("[class*='prod-holder']").CountAsync();
-                for (int i = 0; i < count; i++)
+                //Here we compare text inside product quicklook with our specific filter
+                var product = page.Locator("[class*='prod-holder']").Nth(i);
+                string textContent = await product.InnerTextAsync();
+                bool containsText = textContent.Contains(propertyname, StringComparison.OrdinalIgnoreCase);
+
+                // if we fail to find it inside product's quicklook of properties, 
+                // we check it on product's pace
+                if (!containsText)
                 {
-                    //Here we compare text inside product quicklook with our specific filter
-                    var product = page.Locator("[class*='prod-holder']").Nth(i);
-                    string textContent = await product.InnerTextAsync();
-                    bool containsText = textContent.Contains(propertyname, StringComparison.OrdinalIgnoreCase);
+                    //await Task.Delay(5000); 
+                    await page.Locator("[class*='prod-holder']").Nth(i).ClickAsync();
 
-                    // if we fail to find it inside product's quicklook of properties, 
-                    // we check it on product's pace
-                    if (!containsText)
-                    {
-                        await Task.Delay(5000);
-                        await page.Locator("[class*='prod-holder']").Nth(i).ClickAsync();
+                    var productspecstable = page.Locator(".specs");
+                    textContent = await productspecstable.InnerTextAsync();
+                    containsText = textContent.Contains(propertyname, StringComparison.OrdinalIgnoreCase);
 
-                        var productspecstable = page.Locator(".specs");
-                        textContent = await productspecstable.InnerTextAsync();
-                        containsText = textContent.Contains(propertyname, StringComparison.OrdinalIgnoreCase);
+                    await page.GoBackAsync();
+                }
 
-                        await page.GoBackAsync();
-                    }
-
-                    Assert.IsTrue(containsText, $"Product number {i} does not contain specific filter '{propertyname}'");
+                Assert.IsTrue(containsText, $"Product number {i} does not contain specific filter '{propertyname}'");
 
                     
-                }
             }
+            //}
         }
         #region Multiple filter skeleton
         //public async Task VerifyItemsFilter(string[] propertyname)
@@ -163,19 +166,23 @@ namespace SolarTechHW.PageObjects
             
 
         }
-        public async Task VerrifyThatPageChangedToDefaultAndCartIsEmpty()
+        public async Task VerrifyCartIsEmpty()
         {
-            await Task.Delay(5000);
+            //"cart-icon labeled" - red dot when cart is not empty
+            await Assertions.Expect(page.Locator(".cart-icon")).ToBeVisibleAsync();
+            await Assertions.Expect(page.Locator(".cart-icon.labeled")).Not.ToBeVisibleAsync();
 
-            //Verrify that after deleting item page changed to default
-            string currentUrl = page.Url;
-            Assert.That(currentUrl, Is.EqualTo("https://solartechnology.com.ua/shop"), "The URL supposed to change after" +
-                " deleting item from shopping cart.");
+            //await Task.Delay(5000);
 
-            //Verify that if we click shopping cart button nothing happens. That means shopping cart is empty
-            await page.Locator("li").Filter(new() { HasText = "shopping_cart" }).Locator("a").ClickAsync();
-            Assert.That(currentUrl, Is.EqualTo("https://solartechnology.com.ua/shop"), "The URL changed after" +
-                " clicking the button, indicating that something happened.");
+            ////Verrify that after deleting item page changed to default
+            //string currentUrl = page.Url;
+            //Assert.That(currentUrl, Is.EqualTo("https://solartechnology.com.ua/shop"), "The URL supposed to change after" +
+            //    " deleting item from shopping cart.");
+
+            ////Verify that if we click shopping cart button nothing happens. That means shopping cart is empty
+            //await page.Locator("li").Filter(new() { HasText = "shopping_cart" }).Locator("a").ClickAsync();
+            //Assert.That(currentUrl, Is.EqualTo("https://solartechnology.com.ua/shop"), "The URL changed after" +
+            //    " clicking the button, indicating that something happened.");
         }
 
         public async Task VerifyAnyItemsOnPage()
