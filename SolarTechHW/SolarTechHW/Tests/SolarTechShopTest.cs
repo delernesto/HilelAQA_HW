@@ -68,12 +68,16 @@ namespace SolarTechHW.Tests
             await SolarTechShopPage.GoToInverters();
             await SolarTechShopPage.VerifyAnyItemsOnPage();
 
-            //Act and Assert for Add
+            //Act #Add
             await SolarTechShopPage.AddItemToShopCart();
+
+            //Assert #Add
             await SolarTechShopCartPage.VerifyAnyItemsInCart();
 
-            //Act and Assert for Delete
+            //Act #Delete
             await SolarTechShopCartPage.ClickDeleteItemFromShopCart();
+
+            //Assert #Delete
             await SolarTechShopPage.VerrifyCartIsEmpty();
         }
 
