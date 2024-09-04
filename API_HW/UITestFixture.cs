@@ -15,7 +15,7 @@ namespace API_HW
 
             browser = await playwrightDriver.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false
+                Headless = true
             });
 
             var context = await browser.NewContextAsync(new BrowserNewContextOptions
