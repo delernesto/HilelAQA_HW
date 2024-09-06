@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="dcbc834e-3da4-443f-b243-393f8a3774c0" name="@670e2b21ebe6 2024-09-04 22:57:07" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-09-04T22:57:07.7012547+00:00" queuing="2024-09-04T22:57:07.7012547+00:00" start="2024-09-04T22:56:59.1145320+00:00" finish="2024-09-04T22:57:28.7137869+00:00" />
+  <TestSettings name="default" id="9340c4ce-8a98-4485-9717-5a39d888ae25">
+    <Deployment runDeploymentRoot="_670e2b21ebe6_2024-09-04_22_57_07" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="9952e25b-65a2-47fd-b67c-ada0b371b91e" testId="efb60191-d95e-ac29-bc0c-d44b5219570e" testName="VerifyFilterCheckboxInventors(&quot;Мережевий&quot;)" computerName="670e2b21ebe6" duration="00:00:02.5917110" startTime="2024-09-04T22:57:13.0787953+00:00" endTime="2024-09-04T22:57:15.6705055+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9952e25b-65a2-47fd-b67c-ada0b371b91e">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXt0o7J7 --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=289
+  - [pid=289][err] [289:304:0904/225715.642665:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=289][err] [289:289:0904/225715.643979:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=289][err] [289:289:0904/225715.644008:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3675f676-8316-4340-bf79-e78c2f981367" testId="3ad68bf1-bf01-d006-bd5f-73e0aad80dd8" testName="AddandDeleteProductsofShoppingCart" computerName="670e2b21ebe6" duration="00:00:06.8269180" startTime="2024-09-04T22:57:00.8330266+00:00" endTime="2024-09-04T22:57:07.6598679+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3675f676-8316-4340-bf79-e78c2f981367">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXX94NBwO --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=190
+  - [pid=190][err] [190:205:0904/225707.619009:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=190][err] [190:190:0904/225707.620246:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=190][err] [190:190:0904/225707.620276:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e758cf76-1518-4bd2-b09d-ce7bdb8b5176" testId="dbd9ad5e-214d-d5b4-da51-c8e1f134c149" testName="VerifyFilterCheckboxSolarPanels(&quot;Полікристал&quot;)" computerName="670e2b21ebe6" duration="00:00:02.5622580" startTime="2024-09-04T22:57:20.8427498+00:00" endTime="2024-09-04T22:57:23.4050079+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e758cf76-1518-4bd2-b09d-ce7bdb8b5176">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXMPWZbu --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=386
+  - [pid=386][err] [386:401:0904/225723.383846:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=386][err] [386:386:0904/225723.385382:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=386][err] [386:386:0904/225723.385412:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c33c8f64-cb52-4cf0-9e84-eba96ae32e4c" testId="0ce8e2e0-c6d0-2f14-75eb-2156f429df5a" testName="VerifyFilterCheckboxSolarPanels(&quot;60&quot;)" computerName="670e2b21ebe6" duration="00:00:02.6556050" startTime="2024-09-04T22:57:23.4050597+00:00" endTime="2024-09-04T22:57:26.0606639+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c33c8f64-cb52-4cf0-9e84-eba96ae32e4c">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXy8hmGk --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=421
+  - [pid=421][err] [421:436:0904/225726.039183:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=421][err] [421:421:0904/225726.040499:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=421][err] [421:421:0904/225726.040528:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3e76603d-e6f0-466d-9734-a810c594a580" testId="9535bbcf-0d45-fcdf-0ab9-2c59eda8643a" testName="VerifyFilterCheckboxInventors(&quot;Deye&quot;)" computerName="670e2b21ebe6" duration="00:00:02.8176120" startTime="2024-09-04T22:57:07.6618001+00:00" endTime="2024-09-04T22:57:10.4794117+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e76603d-e6f0-466d-9734-a810c594a580">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXl86Lnk --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=223
+  - [pid=223][err] [223:238:0904/225710.444705:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=223][err] [223:223:0904/225710.446812:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=223][err] [223:223:0904/225710.446880:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ce544a77-2465-4ace-9c9a-00c79cafefcb" testId="e0a5718f-9de8-44a4-814a-6004d472e793" testName="VerifyProductNamesAreIdentical" computerName="670e2b21ebe6" duration="00:00:02.5850790" startTime="2024-09-04T22:57:26.0608096+00:00" endTime="2024-09-04T22:57:28.6458877+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce544a77-2465-4ace-9c9a-00c79cafefcb">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXNmlRTA --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=453
+  - [pid=453][err] [453:468:0904/225728.564679:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=453][err] [453:453:0904/225728.566122:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=453][err] [453:453:0904/225728.566151:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="757afd07-d90a-4034-8f2e-594109d1a223" testId="04a37eba-b96d-5bc8-de80-830f2860c3ae" testName="VerifyFilterCheckboxSolarPanels(&quot;Jinko Solar&quot;)" computerName="670e2b21ebe6" duration="00:00:02.6097720" startTime="2024-09-04T22:57:18.2342248+00:00" endTime="2024-09-04T22:57:20.8426931+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="757afd07-d90a-4034-8f2e-594109d1a223">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXbR1s2T --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=353
+  - [pid=353][err] [353:368:0904/225720.823992:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=353][err] [353:353:0904/225720.825647:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=353][err] [353:353:0904/225720.825678:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a0edc93e-6254-46fe-ae99-bd3178a73aae" testId="3736dac0-2195-845e-b035-3472d18299ff" testName="VerifyFilterCheckboxInventors(&quot;Huawei&quot;)" computerName="670e2b21ebe6" duration="00:00:02.5992400" startTime="2024-09-04T22:57:10.4795054+00:00" endTime="2024-09-04T22:57:13.0787449+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0edc93e-6254-46fe-ae99-bd3178a73aae">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXanaWIh --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=256
+  - [pid=256][err] [256:270:0904/225713.051281:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=256][err] [256:256:0904/225713.053101:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=256][err] [256:256:0904/225713.053132:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="81e0b84b-40a7-4ed8-b199-73ab468a29c4" testId="e91abf14-c71d-edcd-e8ee-e6fa4a87c36b" testName="VerifyFilterCheckboxSolarPanels(&quot;JA Solar&quot;)" computerName="670e2b21ebe6" duration="00:00:02.5618920" startTime="2024-09-04T22:57:15.6722821+00:00" endTime="2024-09-04T22:57:18.2341737+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="81e0b84b-40a7-4ed8-b199-73ab468a29c4">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.TargetClosedException : Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run &lt;your-playwright-app&gt;' before running Playwright. ║
+║                                                                                                ║
+║ &lt;3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - &lt;launching&gt; /root/.cache/ms-playwright/chromium-1129/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=ImprovedCookieControls,LazyFrameLoading,GlobalMediaControls,DestroyProfileOnBrowserClose,MediaRouter,DialMediaRouteProvider,AcceptCHFrame,AutoExpandDetailsElement,CertificateTransparencyComponentUpdater,AvoidUnnecessaryBeforeUnloadCheckSync,Translate,HttpsUpgrades,PaintHolding,PlzDedicatedWorker --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-XXXXXXGLfamw --remote-debugging-pipe --no-startup-window
+  - &lt;launched&gt; pid=321
+  - [pid=321][err] [321:336:0904/225718.215336:ERROR:bus.cc(407)] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+  - [pid=321][err] [321:321:0904/225718.216637:ERROR:ozone_platform_x11.cc(244)] Missing X server or $DISPLAY
+  - [pid=321][err] [321:321:0904/225718.216666:ERROR:env.cc(258)] The platform failed to initialize.  Exiting.
+TearDown : System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 206
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal) in /_/src/Playwright/Transport/Connection.cs:line 532
+   at Microsoft.Playwright.Core.BrowserType.LaunchAsync(BrowserTypeLaunchOptions options) in /_/src/Playwright/Core/BrowserType.cs:line 56
+   at UiTestFixture.UITestFixture.Setup() in /app/SolarTechHW/UITestFixture.cs:line 17
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUp(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownCommand.&lt;&gt;c__DisplayClass0_0.&lt;.ctor&gt;b__0(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+--TearDown
+   at UiTestFixture.UITestFixture.Teardown() in /app/SolarTechHW/UITestFixture.cs:line 49
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.GetResult()
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunSetUpOrTearDownMethod(TestExecutionContext context, IMethodInfo method)
+   at NUnit.Framework.Internal.Commands.SetUpTearDownItem.RunTearDown(TestExecutionContext context)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;60&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="0ce8e2e0-c6d0-2f14-75eb-2156f429df5a">
+      <Execution id="c33c8f64-cb52-4cf0-9e84-eba96ae32e4c" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;60&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;JA Solar&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="e91abf14-c71d-edcd-e8ee-e6fa4a87c36b">
+      <Execution id="81e0b84b-40a7-4ed8-b199-73ab468a29c4" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;JA Solar&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxInventors(&quot;Deye&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="9535bbcf-0d45-fcdf-0ab9-2c59eda8643a">
+      <Execution id="3e76603d-e6f0-466d-9734-a810c594a580" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxInventors(&quot;Deye&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyProductNamesAreIdentical" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="e0a5718f-9de8-44a4-814a-6004d472e793">
+      <Execution id="ce544a77-2465-4ace-9c9a-00c79cafefcb" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyProductNamesAreIdentical" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxInventors(&quot;Мережевий&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="efb60191-d95e-ac29-bc0c-d44b5219570e">
+      <Execution id="9952e25b-65a2-47fd-b67c-ada0b371b91e" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxInventors(&quot;Мережевий&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;Полікристал&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="dbd9ad5e-214d-d5b4-da51-c8e1f134c149">
+      <Execution id="e758cf76-1518-4bd2-b09d-ce7bdb8b5176" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;Полікристал&quot;)" />
+    </UnitTest>
+    <UnitTest name="AddandDeleteProductsofShoppingCart" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="3ad68bf1-bf01-d006-bd5f-73e0aad80dd8">
+      <Execution id="3675f676-8316-4340-bf79-e78c2f981367" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="AddandDeleteProductsofShoppingCart" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;Jinko Solar&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="04a37eba-b96d-5bc8-de80-830f2860c3ae">
+      <Execution id="757afd07-d90a-4034-8f2e-594109d1a223" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;Jinko Solar&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxInventors(&quot;Huawei&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="3736dac0-2195-845e-b035-3472d18299ff">
+      <Execution id="a0edc93e-6254-46fe-ae99-bd3178a73aae" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxInventors(&quot;Huawei&quot;)" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="efb60191-d95e-ac29-bc0c-d44b5219570e" executionId="9952e25b-65a2-47fd-b67c-ada0b371b91e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3ad68bf1-bf01-d006-bd5f-73e0aad80dd8" executionId="3675f676-8316-4340-bf79-e78c2f981367" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dbd9ad5e-214d-d5b4-da51-c8e1f134c149" executionId="e758cf76-1518-4bd2-b09d-ce7bdb8b5176" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ce8e2e0-c6d0-2f14-75eb-2156f429df5a" executionId="c33c8f64-cb52-4cf0-9e84-eba96ae32e4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9535bbcf-0d45-fcdf-0ab9-2c59eda8643a" executionId="3e76603d-e6f0-466d-9734-a810c594a580" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0a5718f-9de8-44a4-814a-6004d472e793" executionId="ce544a77-2465-4ace-9c9a-00c79cafefcb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="04a37eba-b96d-5bc8-de80-830f2860c3ae" executionId="757afd07-d90a-4034-8f2e-594109d1a223" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3736dac0-2195-845e-b035-3472d18299ff" executionId="a0edc93e-6254-46fe-ae99-bd3178a73aae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e91abf14-c71d-edcd-e8ee-e6fa4a87c36b" executionId="81e0b84b-40a7-4ed8-b199-73ab468a29c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="9" executed="9" passed="0" failed="9" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 4.5.0.0: Test execution started
+Running all tests in /app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll
+   NUnit3TestExecutor discovered 9 of 9 NUnit test cases using Current Discovery mode, Non-Explicit run
+NUnit Adapter 4.5.0.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

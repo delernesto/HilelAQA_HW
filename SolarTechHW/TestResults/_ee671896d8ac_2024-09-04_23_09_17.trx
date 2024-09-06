@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="3364b461-c13a-4419-bfd9-f59ec897d8aa" name="@ee671896d8ac 2024-09-04 23:09:17" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-09-04T23:09:17.7692820+00:00" queuing="2024-09-04T23:09:17.7692822+00:00" start="2024-09-04T23:09:03.3555363+00:00" finish="2024-09-04T23:11:43.3845623+00:00" />
+  <TestSettings name="default" id="286b530e-967c-4263-8236-ea6e1b742843">
+    <Deployment runDeploymentRoot="_ee671896d8ac_2024-09-04_23_09_17" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="12afe060-059a-46ec-896d-080df2f481b2" testId="efb60191-d95e-ac29-bc0c-d44b5219570e" testName="VerifyFilterCheckboxInventors(&quot;Мережевий&quot;)" computerName="ee671896d8ac" duration="00:00:49.6799060" startTime="2024-09-04T23:09:41.4534276+00:00" endTime="2024-09-04T23:10:31.1300901+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12afe060-059a-46ec-896d-080df2f481b2" />
+    <UnitTestResult executionId="fa408e3c-9896-4c19-800a-f27c16dea4c4" testId="3736dac0-2195-845e-b035-3472d18299ff" testName="VerifyFilterCheckboxInventors(&quot;Huawei&quot;)" computerName="ee671896d8ac" duration="00:00:12.0579470" startTime="2024-09-04T23:09:29.3954262+00:00" endTime="2024-09-04T23:09:41.4533723+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa408e3c-9896-4c19-800a-f27c16dea4c4" />
+    <UnitTestResult executionId="e7c724f7-6f86-41b4-88b1-8af8705e8917" testId="04a37eba-b96d-5bc8-de80-830f2860c3ae" testName="VerifyFilterCheckboxSolarPanels(&quot;Jinko Solar&quot;)" computerName="ee671896d8ac" duration="00:00:11.7002370" startTime="2024-09-04T23:10:42.9707522+00:00" endTime="2024-09-04T23:10:54.6684354+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e7c724f7-6f86-41b4-88b1-8af8705e8917" />
+    <UnitTestResult executionId="0df99927-5d35-4a16-ab74-cd4458af1daf" testId="3ad68bf1-bf01-d006-bd5f-73e0aad80dd8" testName="AddandDeleteProductsofShoppingCart" computerName="ee671896d8ac" duration="00:00:13.4855880" startTime="2024-09-04T23:09:04.2245957+00:00" endTime="2024-09-04T23:09:17.7100993+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0df99927-5d35-4a16-ab74-cd4458af1daf" />
+    <UnitTestResult executionId="da097d14-e12c-4c9b-8d58-44f10dfd99f8" testId="e91abf14-c71d-edcd-e8ee-e6fa4a87c36b" testName="VerifyFilterCheckboxSolarPanels(&quot;JA Solar&quot;)" computerName="ee671896d8ac" duration="00:00:11.8388630" startTime="2024-09-04T23:10:31.1317957+00:00" endTime="2024-09-04T23:10:42.9706579+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da097d14-e12c-4c9b-8d58-44f10dfd99f8" />
+    <UnitTestResult executionId="a09dad23-9054-41bd-9f39-2aa67d7ffaec" testId="e0a5718f-9de8-44a4-814a-6004d472e793" testName="VerifyProductNamesAreIdentical" computerName="ee671896d8ac" duration="00:00:08.0152170" startTime="2024-09-04T23:11:35.2859629+00:00" endTime="2024-09-04T23:11:43.3011790+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a09dad23-9054-41bd-9f39-2aa67d7ffaec" />
+    <UnitTestResult executionId="38d1954a-37d4-45af-9599-ac3b415762dc" testId="0ce8e2e0-c6d0-2f14-75eb-2156f429df5a" testName="VerifyFilterCheckboxSolarPanels(&quot;60&quot;)" computerName="ee671896d8ac" duration="00:00:27.8822710" startTime="2024-09-04T23:11:07.4053199+00:00" endTime="2024-09-04T23:11:35.2856406+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38d1954a-37d4-45af-9599-ac3b415762dc" />
+    <UnitTestResult executionId="c88793e4-e258-44ae-bd35-2a85f994f7a8" testId="9535bbcf-0d45-fcdf-0ab9-2c59eda8643a" testName="VerifyFilterCheckboxInventors(&quot;Deye&quot;)" computerName="ee671896d8ac" duration="00:00:11.6853660" startTime="2024-09-04T23:09:17.7117866+00:00" endTime="2024-09-04T23:09:29.3953075+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c88793e4-e258-44ae-bd35-2a85f994f7a8" />
+    <UnitTestResult executionId="3884567e-60e2-491e-9796-9436f78e8c04" testId="dbd9ad5e-214d-d5b4-da51-c8e1f134c149" testName="VerifyFilterCheckboxSolarPanels(&quot;Полікристал&quot;)" computerName="ee671896d8ac" duration="00:00:12.7367260" startTime="2024-09-04T23:10:54.6684997+00:00" endTime="2024-09-04T23:11:07.4052254+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3884567e-60e2-491e-9796-9436f78e8c04" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;60&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="0ce8e2e0-c6d0-2f14-75eb-2156f429df5a">
+      <Execution id="38d1954a-37d4-45af-9599-ac3b415762dc" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;60&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;JA Solar&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="e91abf14-c71d-edcd-e8ee-e6fa4a87c36b">
+      <Execution id="da097d14-e12c-4c9b-8d58-44f10dfd99f8" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;JA Solar&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxInventors(&quot;Deye&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="9535bbcf-0d45-fcdf-0ab9-2c59eda8643a">
+      <Execution id="c88793e4-e258-44ae-bd35-2a85f994f7a8" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxInventors(&quot;Deye&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyProductNamesAreIdentical" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="e0a5718f-9de8-44a4-814a-6004d472e793">
+      <Execution id="a09dad23-9054-41bd-9f39-2aa67d7ffaec" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyProductNamesAreIdentical" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxInventors(&quot;Мережевий&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="efb60191-d95e-ac29-bc0c-d44b5219570e">
+      <Execution id="12afe060-059a-46ec-896d-080df2f481b2" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxInventors(&quot;Мережевий&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;Полікристал&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="dbd9ad5e-214d-d5b4-da51-c8e1f134c149">
+      <Execution id="3884567e-60e2-491e-9796-9436f78e8c04" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;Полікристал&quot;)" />
+    </UnitTest>
+    <UnitTest name="AddandDeleteProductsofShoppingCart" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="3ad68bf1-bf01-d006-bd5f-73e0aad80dd8">
+      <Execution id="0df99927-5d35-4a16-ab74-cd4458af1daf" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="AddandDeleteProductsofShoppingCart" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxSolarPanels(&quot;Jinko Solar&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="04a37eba-b96d-5bc8-de80-830f2860c3ae">
+      <Execution id="e7c724f7-6f86-41b4-88b1-8af8705e8917" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxSolarPanels(&quot;Jinko Solar&quot;)" />
+    </UnitTest>
+    <UnitTest name="VerifyFilterCheckboxInventors(&quot;Huawei&quot;)" storage="/app/solartechhw/bin/debug/net8.0/solartechhw.dll" id="3736dac0-2195-845e-b035-3472d18299ff">
+      <Execution id="fa408e3c-9896-4c19-800a-f27c16dea4c4" />
+      <TestMethod codeBase="/app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll" adapterTypeName="executor://nunit3testexecutor/" className="SolarTechHW.Tests.SolarTechShopTest" name="VerifyFilterCheckboxInventors(&quot;Huawei&quot;)" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="efb60191-d95e-ac29-bc0c-d44b5219570e" executionId="12afe060-059a-46ec-896d-080df2f481b2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3736dac0-2195-845e-b035-3472d18299ff" executionId="fa408e3c-9896-4c19-800a-f27c16dea4c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="04a37eba-b96d-5bc8-de80-830f2860c3ae" executionId="e7c724f7-6f86-41b4-88b1-8af8705e8917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3ad68bf1-bf01-d006-bd5f-73e0aad80dd8" executionId="0df99927-5d35-4a16-ab74-cd4458af1daf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e91abf14-c71d-edcd-e8ee-e6fa4a87c36b" executionId="da097d14-e12c-4c9b-8d58-44f10dfd99f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0a5718f-9de8-44a4-814a-6004d472e793" executionId="a09dad23-9054-41bd-9f39-2aa67d7ffaec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ce8e2e0-c6d0-2f14-75eb-2156f429df5a" executionId="38d1954a-37d4-45af-9599-ac3b415762dc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9535bbcf-0d45-fcdf-0ab9-2c59eda8643a" executionId="c88793e4-e258-44ae-bd35-2a85f994f7a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dbd9ad5e-214d-d5b4-da51-c8e1f134c149" executionId="3884567e-60e2-491e-9796-9436f78e8c04" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="9" executed="9" passed="9" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 4.5.0.0: Test execution started
+Running all tests in /app/SolarTechHW/bin/Debug/net8.0/SolarTechHW.dll
+   NUnit3TestExecutor discovered 9 of 9 NUnit test cases using Current Discovery mode, Non-Explicit run
+NUnit Adapter 4.5.0.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
