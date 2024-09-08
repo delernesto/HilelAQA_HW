@@ -4,12 +4,12 @@ using Microsoft.Playwright;
 
 namespace Course_Final_Hw.PageObjects
 {
-    internal class AutoExcerciseContactUsPage
+    internal class ContactUsPage
     {
         private IPage page;
         private string AutoExcerciseContactUsURL = "https://automationexercise.com/contact_us";
 
-        public AutoExcerciseContactUsPage(IPage pagenew)
+        public ContactUsPage(IPage pagenew)
         {
             page = pagenew;
         }

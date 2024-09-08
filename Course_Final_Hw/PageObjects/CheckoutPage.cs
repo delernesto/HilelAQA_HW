@@ -4,12 +4,12 @@ using System;
 
 namespace Course_Final_Hw.PageObjects
 {
-    internal class AutoExerciseCheckoutPage
+    internal class CheckoutPage
     {
         private IPage page;
         private string AutoExerciseCheckoutURL = "https://automationexercise.com/contact_us";
 
-        public AutoExerciseCheckoutPage(IPage pagenew)
+        public CheckoutPage(IPage pagenew)
         {
             page = pagenew;
         }

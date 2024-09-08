@@ -9,21 +9,21 @@ namespace Course_Final_Hw.Tests
 {
     internal class AutoExcerciseTest : UITestFixture
     {
-        private AutoExcerciseContactUsPage AutoExcerciseContactUsPage;
-        private AutoExcerciseMainPage AutoExcerciseMainPage;
-        private AutoExcerciseProductsPage AutoExcerciseProductsPage;
-        private AutoExcerciseCartPage AutoExcerciseCartPage;
-        private AutoExerciseCheckoutPage AutoExerciseCheckoutPage;
+        private ContactUsPage AutoExcerciseContactUsPage;
+        private MainPage AutoExcerciseMainPage;
+        private ProductsPage AutoExcerciseProductsPage;
+        private CartPage AutoExcerciseCartPage;
+        private CheckoutPage AutoExerciseCheckoutPage;
 
 
         [SetUp]
         public async Task SetupSolarTehchnologyShopPage()
         {
-            AutoExcerciseMainPage = new AutoExcerciseMainPage(Page);
-            AutoExcerciseContactUsPage = new AutoExcerciseContactUsPage(Page);
-            AutoExcerciseProductsPage = new AutoExcerciseProductsPage(Page);
-            AutoExcerciseCartPage = new AutoExcerciseCartPage(Page);
-            AutoExerciseCheckoutPage = new AutoExerciseCheckoutPage(Page);
+            AutoExcerciseMainPage = new MainPage(Page);
+            AutoExcerciseContactUsPage = new ContactUsPage(Page);
+            AutoExcerciseProductsPage = new ProductsPage(Page);
+            AutoExcerciseCartPage = new CartPage(Page);
+            AutoExerciseCheckoutPage = new CheckoutPage(Page);
 
             await AutoExcerciseMainPage.GoToAutoExcerciseMainPage();
         }
@@ -64,7 +64,12 @@ namespace Course_Final_Hw.Tests
         {
             await AutoExcerciseProductsPage.GoToAutoExcerciseProductsPage();
             await AutoExcerciseProductsPage.VerifyAnyProductsOnPage();
-            await AutoExcerciseProductsPage.AddingProductsToCart(productsAmount);
+
+            await AutoExcerciseProductsPage.VerifyAmountIsLessThanWholeAmount(productsAmount);
+            for (int i = 0; i < productsAmount; i++)
+            {
+                await AutoExcerciseProductsPage.AddProductToCart(productsAmount);
+            }
 
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
             await AutoExcerciseCartPage.VerifyAnyProductsInCart();
@@ -89,11 +94,16 @@ namespace Course_Final_Hw.Tests
             }
             await AutoExcerciseProductsPage.GoToAutoExcerciseProductsPage();
             await AutoExcerciseProductsPage.VerifyAnyProductsOnPage();
-            await AutoExcerciseProductsPage.AddingProductsToCart(productsAmount);
+
+            await AutoExcerciseProductsPage.VerifyAmountIsLessThanWholeAmount(productsAmount);
+            for (int i = 0; i < productsAmount; i++)
+            {
+                await AutoExcerciseProductsPage.AddProductToCart(productsAmount);
+            }
 
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
             await AutoExcerciseCartPage.VerifyAnyProductsInCart();
-            int result = await AutoExcerciseCartPage.CountAmountOfProducts();
+            int result = await AutoExcerciseCartPage.CountTheAmountOfProducts();
 
             Assert.That(result, Is.EqualTo(productsAmount));
         }
@@ -106,7 +116,7 @@ namespace Course_Final_Hw.Tests
         {
             await AutoExcerciseProductsPage.GoToAutoExcerciseProductsPage();
             await AutoExcerciseProductsPage.VerifyAnyProductsOnPage();
-            await AutoExcerciseProductsPage.AddingProductsToCart(3);
+            await AutoExcerciseProductsPage.AddProductToCart(3);
 
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
             await AutoExcerciseCartPage.VerifyAnyProductsInCart();

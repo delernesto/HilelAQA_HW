@@ -2,12 +2,12 @@
 
 namespace Course_Final_Hw.PageObjects
 {
-    internal class AutoExcerciseMainPage
+    internal class MainPage
     {
         private IPage page;
         private string AutoExcerciseMainPageURL = "https://automationexercise.com";
 
-        public AutoExcerciseMainPage(IPage pagenew)
+        public MainPage(IPage pagenew)
         {
             page = pagenew;
         }

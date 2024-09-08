@@ -5,12 +5,12 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Course_Final_Hw.PageObjects
 {
-    internal class AutoExcerciseCartPage
+    internal class CartPage
     {
         private IPage page;
         private string AutoExcerciseCartPageURL = "https://automationexercise.com/view_cart";
 
-        public AutoExcerciseCartPage(IPage pagenew)
+        public CartPage(IPage pagenew)
         {
             page = pagenew;
         }
@@ -31,7 +31,7 @@ namespace Course_Final_Hw.PageObjects
             await Assertions.Expect(page.Locator("[id*='product-']").First).ToBeVisibleAsync();
         }
 
-        public async Task<int> CountAmountOfProducts()
+        public async Task<int> CountTheAmountOfProducts()
         {
             int count = await page.Locator("[id*='product-']").CountAsync();
             int amountOfProducts = 0;
