@@ -4,7 +4,7 @@ namespace PlaywrigthSpecFlow.API.Features.Account
 {
     internal class AccountPresetup
     {
-        internal static string UserName = "Usr" + GetCurrentTimestamp();
+        internal static string UserName = "Astolfo";
         internal static string Password = "Pa$$word1";
         internal bool AccountCreated;
         internal string UserId;
@@ -19,6 +19,8 @@ namespace PlaywrigthSpecFlow.API.Features.Account
         internal async Task AccountApiPresetup()
         {
             AccountsApi account = new AccountsApi("https://demoqa.com/");
+
+
             UserId = await account.AddUserGetId(MainUser);
             var token = await account.GenerateToken(MainUser);
             var user = await account.GetUserById(UserId, token);
@@ -30,7 +32,9 @@ namespace PlaywrigthSpecFlow.API.Features.Account
         {
             AccountsApi account = new AccountsApi("https://demoqa.com/");
             var token = await account.GenerateToken(MainUser);
+            Assert.That(account.CheckIfUserExists, Is.EqualTo(200));
             await account.DeleteAccountByID(UserId, token);
+            Assert.That(account.CheckIfUserExists, Is.EqualTo(404));
         }
         #endregion
         #region HelperMethods

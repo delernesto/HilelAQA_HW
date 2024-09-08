@@ -67,23 +67,30 @@ namespace PlaywrigthSpecFlow.API.Features.Account
         {
             using (var requestMessage =
             new HttpRequestMessage(HttpMethod.Get, Client.BaseAddress + "Account/v1/User/" + userId))
-            {
+            {   
                 requestMessage.Headers.Authorization =
                     new AuthenticationHeaderValue("Bearer", token);
 
                 return await Client.SendAsync(requestMessage);
             }
         }
+        public async Task<HttpStatusCode> CheckIfUserExists(UserModel credentials)
+        {
+            var json = JsonConvert.SerializeObject(credentials);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await Client.PostAsync("/Account/v1/Authorized", content);
+
+            return response.StatusCode;
+
+        }
 
         public async Task<HttpResponseMessage> DeleteAccountByID(string userId, string token)
         {
+            
+
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await Client.DeleteAsync($"/Account/v1/User/{userId}");
-            if (response.StatusCode == HttpStatusCode.NoContent)
-            {
-                Console.WriteLine($"Error deleting user: {response.StatusCode}");
-            }
-            Console.WriteLine("User deleted successfully.");
+           
             return response;
         }
     }
