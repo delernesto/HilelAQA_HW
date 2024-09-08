@@ -39,19 +39,13 @@ namespace Course_Final_Hw.PageObjects
         }
         public async Task AddFileInput(string fileName)
         {
-            string inputFile = HelperMethod.GetProjectFilePath() + "bin/Debug/net8.0/" + fileName;
+            string inputFile = Path.Combine(HelperMethod.GetProjectFilePath(), fileName);
             await page.Locator("input[name=\"upload_file\"]").SetInputFilesAsync(new[] { inputFile });  
         }
         public async Task ClickSubmitAndOK()
         {
             //Here we accept Popup after we click submit
-            void page_Dialog1_EventHandler(object sender, IDialog dialog)
-            {
-                Console.WriteLine($"Dialog message: {dialog.Message}");
-                dialog.AcceptAsync();
-                page.Dialog -= page_Dialog1_EventHandler;
-            }
-            page.Dialog += page_Dialog1_EventHandler;
+            page.Dialog += async (_, dialog) => await dialog.AcceptAsync();
 
             await page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
         }

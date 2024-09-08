@@ -30,7 +30,7 @@ namespace Course_Final_Hw.Tests
         [Description("Verify Contact Us Form works Correctly")]
         public async Task VerifySendingContactUsForm()
         {
-            await Page.PauseAsync();
+            //await Page.PauseAsync();
 
             await AutoExcerciseContactUsPage.GoToAutoExcerciseContactUsPage();
 
@@ -104,14 +104,6 @@ namespace Course_Final_Hw.Tests
         public async Task PlaceOrderBeforeCheckout()
         
         {
-
-            await Page.GotoAsync("https://automationexercise.com/login");
-            await Page.Locator("form").Filter(new() { HasText = "Login" }).GetByPlaceholder("Email Address").ClickAsync();
-            await Page.Locator("form").Filter(new() { HasText = "Login" }).GetByPlaceholder("Email Address").FillAsync("Astolfo@gmail.com");
-            await Page.GetByPlaceholder("Password").ClickAsync();
-            await Page.GetByPlaceholder("Password").FillAsync("qawsed");
-            await Page.GetByRole(AriaRole.Button, new() { Name = "Login" }).ClickAsync();
-
             await AutoExcerciseProductsPage.GoToAutoExcerciseProductsPage();
             await AutoExcerciseProductsPage.VerifyAnyProductsOnPage();
             await AutoExcerciseProductsPage.AddingProductsToCart(3);
