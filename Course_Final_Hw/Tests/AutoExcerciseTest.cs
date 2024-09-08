@@ -1,6 +1,7 @@
 ﻿using Course_Final_Hw.PageObjects;
 using Microsoft.Playwright;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using System.Runtime.InteropServices;
 using UiTestFixture;
 
 
@@ -30,8 +31,6 @@ namespace Course_Final_Hw.Tests
         [Description("Verify Contact Us Form works Correctly")]
         public async Task VerifySendingContactUsForm()
         {
-            //await Page.PauseAsync();
-
             await AutoExcerciseContactUsPage.GoToAutoExcerciseContactUsPage();
 
             await AutoExcerciseContactUsPage.FillNameInput("Astolfo");
@@ -68,11 +67,10 @@ namespace Course_Final_Hw.Tests
             await AutoExcerciseProductsPage.AddingProductsToCart(productsAmount);
 
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
-            await AutoExcerciseCartPage.VerifyAnyPrductsInCart();
-            await AutoExcerciseCartPage.RemoveProduct();
+            await AutoExcerciseCartPage.VerifyAnyProductsInCart();
+            await AutoExcerciseCartPage.RemoveProducts();
 
-            string EmptyCartText = "Cart is empty!";
-            await Assertions.Expect(Page.Locator("#empty_cart p")).ToContainTextAsync(EmptyCartText);
+            Assert.That(AutoExcerciseCartPage.IsCartEmpty(), Is.Not.Null);
 
         }
 
@@ -82,17 +80,19 @@ namespace Course_Final_Hw.Tests
         [TestCase(10)]
         public async Task VerifyProductQuantityInCart(int productsAmount)
         {
-            //aknowledged that cause of saving user session we may have 
-            //products at cart already, gonna fix it later
+            //Here we ensure cart is empty before we start adding products        
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
-            await AutoExcerciseCartPage.RemoveProduct();
-
+          
+            if (await AutoExcerciseCartPage.CheckifAnyProductsInCart())
+            {
+                await AutoExcerciseCartPage.RemoveProducts();
+            }
             await AutoExcerciseProductsPage.GoToAutoExcerciseProductsPage();
             await AutoExcerciseProductsPage.VerifyAnyProductsOnPage();
             await AutoExcerciseProductsPage.AddingProductsToCart(productsAmount);
 
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
-            await AutoExcerciseCartPage.VerifyAnyPrductsInCart();
+            await AutoExcerciseCartPage.VerifyAnyProductsInCart();
             int result = await AutoExcerciseCartPage.CountAmountOfProducts();
 
             Assert.That(result, Is.EqualTo(productsAmount));
@@ -109,7 +109,7 @@ namespace Course_Final_Hw.Tests
             await AutoExcerciseProductsPage.AddingProductsToCart(3);
 
             await AutoExcerciseCartPage.GoToAutoExcerciseCartPage();
-            await AutoExcerciseCartPage.VerifyAnyPrductsInCart();
+            await AutoExcerciseCartPage.VerifyAnyProductsInCart();
             await AutoExcerciseCartPage.ClickCheckoutButton();
 
             await AutoExerciseCheckoutPage.VerifyPageIsTransferedTo();
